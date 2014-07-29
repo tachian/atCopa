@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -23,13 +23,13 @@
     <!-- Add your site or application content here -->
     <div class="container">
 
-      <div class="header">
-        <h1>
-          <p class="text-center">
-            Copa de Execução
-          </p>
-        </h1>
-      </div>
+
+      <h1>
+        <p class="text-center">
+          Copa de Execução
+        </p>
+      </h1>
+      <hr style="margin-bottom: 0; margin-top: 0;">
 
       <div ng-view=""></div>
 
@@ -72,9 +72,12 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/config.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/directives/team.js"></script>
-        <script src="scripts/services/entry.js"></script>
+        <script src="scripts/directives/team_directives.js"></script>
+        <script src="scripts/directives/member_directives.js"></script>
+        <script src="scripts/directives/game_directives.js"></script>
+        <script src="scripts/services/entry_services.js"></script>
         <script src="scripts/services/auth_services.js"></script>
+        <script src="scripts/services/game_services.js"></script>
         <!-- endbuild -->
 </body>
 </html>

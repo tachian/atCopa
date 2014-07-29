@@ -1,0 +1,34 @@
+<div ng-repeat="member in members">
+	<h4>
+		<label>{{$index + 1}})</label> {{member.name}}
+		<a class="btn btn-xs btn-danger" ng-click="removeMember($index)"><span class="glyphicon glyphicon-minus"></span></a>
+	</h4>	
+</div>
+
+<form accept-charset="UTF-8" role="form" name="member_form" novalidate ng-submit="registerMember()">
+	<fieldset>
+		<div class="form-group">
+	  	<label for="member">Nome do jogador</label>
+	  	<input
+	  		class="form-control"
+		  	id="member"
+	  		type="text" 
+	  		placeholder="Entre com o nome do jogador time" 
+	  		ng-model="newMember" 
+	  		name="name"
+	  		size="35"
+	  		required
+	  		ng-minlength="5"
+	  		ng-maxlength="50">
+	  </div>
+	 	<div class="form-group">
+  		<input type="submit" class="btn btn-primary" value="Incluir" ng-disabled="member_form.$invalid" />
+  	</div>
+  </fieldset>
+</form>
+
+<div class="row">
+	<div class="text-center">
+			<a class="btn btn-success" ng-disabled="members.length == 0" ng-click="startPlay()">Ir para o Jogo<span class="glyphicon glyphicon-ok"></span></a>
+	</div>
+</div>

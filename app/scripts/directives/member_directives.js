@@ -2,13 +2,13 @@
 
 /* Directives */
 
-angular.module('teamDirectives', [])
-.directive('atTeam', function () {
+angular.module('memberDirectives', [])
+.directive('atMembers', function () {
     return {
       restrict : 'A',
-      templateUrl: "views/team.html",
+      templateUrl: "views/members.html",
       link : function (scope, element, attrs){
-
+      		
         }    
     };
 });

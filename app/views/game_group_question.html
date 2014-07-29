@@ -1,0 +1,36 @@
+<div class="well well-sm">
+	<h4>{{testGuideBasic[currentQuestion].group_question.name}}<h4>
+</div>
+<div ng-repeat="statement in testGuideBasic[currentQuestion].group_question.statements">
+
+	<div class="row">
+		{{statement.name}}
+
+
+		<!-- More than 1 correct answer -->
+		<div ng-show="statement.number_corrects>1">
+			<div ng-repeat="alternative in statement.alternatives">
+				<div class="col-xs-3 col-sm-3">
+					<input type="checkbox" value="">
+			   		{{alternative.name}} 
+				</div>
+			</div>
+		</div>
+
+		<!-- Only 1 correct answer -->
+		<div ng-show="statement.number_corrects=1">
+			<div ng-repeat="alternative in statement.alternatives">
+				<div class="col-xs-3 col-sm-3">
+				  <input type="radio" name="answerOptions{{statement.id}}" id="optionsRadios{{statement.id}}" value="option1">
+				   	{{alternative.name}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<div class="text-center">
+	<div class="btn btn-primary" role="button" ng-click="nextStepBasic()">{{textBasicButton}}</div>
+</div>

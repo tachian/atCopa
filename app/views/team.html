@@ -1,19 +1,23 @@
-<div class="container">
+
 	<form accept-charset="UTF-8" role="form" name="team_form" novalidate ng-submit="registerTeam()">
 		<fieldset>
+
 			<div class="form-group">
-		  	<label>Nome do Time</label>
-		  	<input 
+		  	<label for="team">Nome do Time</label>
+		  	<input
+		  		class="form-control"
+		  		id="team"
 		  		type="text" 
 		  		placeholder="Entre com o nome do time" 
 		  		ng-model="team.name" 
 		  		name="name"
-		  		size="30"
 		  		required
 		  		ng-minlength="5"
 		  		ng-maxlength="50">
 		  </div>
-    	<input type="submit" class="btn btn-primary" value="Cadastrar Time" ng-disabled="team_form.$invalid" />
+
+		  <div class="form-group">
+    		<input type="submit" class="btn btn-primary" value="{{team_msg}}" ng-disabled="team_form.$invalid" />
+    	</div
     </fieldset>
 	</form>
-</div>

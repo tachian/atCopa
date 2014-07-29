@@ -1,0 +1,79 @@
+<div class="alert alert-info text-center" style="margin-bottom: 3px;" role="alert"><span class="glyphicon glyphicon-chevron-left pull-left" ng-click="previousScenario()"></span>Plano de Ação<span class="glyphicon glyphicon-chevron-right pull-right" ng-click="nextScenario()"></span></div>
+
+<div class="text-center" ng-click="backPdv()">Voltar para Ponto</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="thumbnail">
+      <img src="images/yeoman.png">
+      <div class="caption">
+        <h3>{{pdv.scenarios[currentScenario].name}}</h3>
+        <p>{{pdv.scenarios[currentScenario].ap.statement}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-show="pdv.scenarios[currentScenario].ap.simple_question">
+	<div class="well well-sm">
+		<h4>{{pdv.scenarios[currentScenario].ap.simple_question.name}}<h4>
+	</div>
+	<div ng-repeat="alternative in pdv.scenarios[currentScenario].ap.simple_question.alternatives">
+		<!-- More than 1 correct answer -->
+		<div ng-show="pdv.scenarios[currentScenario].ap.simple_question.number_corrects>1">
+			<div class="checkbox">
+	  		<label>
+	    		<input type="checkbox" value="">
+	    		{{alternative.name}}
+	  		</label>
+			</div>
+		</div>
+		
+		<!-- Only 1 correct answer -->
+		<div ng-show="pdv.scenarios[currentScenario].ap.simple_question.number_corrects=1">
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="answerOptions" id="optionsRadios1" value="option1">
+			    {{alternative.name}}
+			  </label>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div ng-show="pdv.scenarios[currentScenario].ap.group_question">
+	<div class="well well-sm">
+		<h4>{{pdv.scenarios[currentScenario].ap.group_question.name}}<h4>
+	</div>
+	<div ng-repeat="statement in pdv.scenarios[currentScenario].ap.group_question.statements">
+
+		<div class="row">
+			{{statement.name}}
+
+
+			<!-- More than 1 correct answer -->
+			<div ng-show="statement.number_corrects>1">
+				<div ng-repeat="alternative in statement.alternatives">
+					<div class="col-xs-3 col-sm-3">
+						<input type="checkbox" value="">
+				   		{{alternative.name}} 
+					</div>
+				</div>
+			</div>
+
+			<!-- Only 1 correct answer -->
+			<div ng-show="statement.number_corrects=1">
+				<div ng-repeat="alternative in statement.alternatives">
+					<div class="col-xs-3 col-sm-3">
+					  <input type="radio" name="answerOptions{{statement.id}}" id="optionsRadios{{statement.id}}" value="option1">
+					   	{{alternative.name}}
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

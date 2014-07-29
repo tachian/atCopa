@@ -18,8 +18,11 @@ var atCopaApp = angular.module('atcopaApp', [
     'appConfig',
     'mainControllers',
     'teamDirectives',
+    'memberDirectives',
+    'gameDirectives',
     'authServices',
-    'entryServices'
+    'entryServices',
+    'gameServices'
   ]);
 
 atCopaApp.config(['$routeProvider', 
