@@ -110,4 +110,13 @@ angular.module('gameDirectives', [])
           
         }    
     };
+})
+.directive('atFinishGame', function () {
+    return {
+      restrict : 'A',
+      templateUrl: "views/finish_game.html",
+      link : function (scope, element, attrs){
+          
+        }    
+    };
 });

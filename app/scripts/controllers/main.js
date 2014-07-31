@@ -2,14 +2,33 @@
 
 var mainControllers = angular.module('mainControllers', []);
 
-mainControllers.controller('MainCtrl', ['$scope', 'Entry', 'Game', '$filter',
-	function ($scope, Entry, Game, $filter) {
+mainControllers.controller('MainCtrl', ['$scope', 'Entry', 'Game', '$filter', '$timeout',
+	function ($scope, Entry, Game, $filter, $timeout) {
 
 		$scope.level= 0;
     $scope.gameLevel = 0;
     $scope.team_msg = "Cadastrar";
+    $scope.ImageQuestionMessage = "Ver imagem";
 
     var mensagem_erro = 'Ocorreu um erro. Favor entrar em contato com suporte.';
+
+    var myCountDown;
+
+    var countdown = function(){
+      if ($scope.count > 0){
+        $scope.count -= 1; 
+        myCountDown = $timeout(countdown, 1000); 
+      }
+      else
+      {
+        alert("O tempo terminou.");
+        correctionGame();
+      }
+    }
+
+    var correctionGame = function(){
+      $scope.level= 4;
+    }
 
     $scope.showLevel = function(level){
 
@@ -92,7 +111,12 @@ mainControllers.controller('MainCtrl', ['$scope', 'Entry', 'Game', '$filter',
     }
 
     $scope.filterTest = function(){
-      Game.getGameGuideBasic($scope.tests[0].id)
+      $scope.game = $scope.tests.filter(function(test){return test.id == $scope.game.id})[0];
+
+      $scope.count = $scope.game.duration;
+      myCountDown = $timeout(countdown, 1000);
+
+      Game.getGameGuideBasic($scope.game.id)
       .success(
         function (data){
           angular.forEach(data.test_guide_basics, function (teste_guide_basic){
@@ -264,6 +288,7 @@ mainControllers.controller('MainCtrl', ['$scope', 'Entry', 'Game', '$filter',
 
     $scope.backPdv = function(){
       $scope.gameAnalysesLevel = 2;
+      $scope.currentScenario = 0;
     }
 
     $scope.backAnalysis = function(){
@@ -280,6 +305,24 @@ mainControllers.controller('MainCtrl', ['$scope', 'Entry', 'Game', '$filter',
       if($scope.currentScenario>0){
         $scope.currentScenario -= 1;  
       }
+    }
+
+    $scope.finishGame = function(){
+      $timeout.cancel(myCountDown);
+      correctionGame();
+    }
+
+    $scope.showImage = function(imageQuestion){
+      if($scope.imageQuestion){
+        $scope.imageQuestion = false;
+        $scope.ImageQuestionMessage = "Ver imagem";
+      }
+      else
+      {
+        $scope.imageQuestion = true;
+        $scope.ImageQuestionMessage = "Esconder imagem";  
+      }
+      
     }
 
   }

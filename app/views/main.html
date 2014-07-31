@@ -9,7 +9,7 @@
   <p><a class="btn btn-lg btn-success" ng-click="startGame()">Começar o jogo<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row" style="text-align: center; padding-top: 10px;" ng-show="level>0">
+<div class="row" style="text-align: center; padding-top: 10px;" ng-show="level>0 && level<4">
 	<ul class="nav nav-pills" style="display: inline-block;">
 	  <li ng-class="{'active': level==1}"><a href="" ng-click="showLevel(1)" style="padding: 10px 10px;">Time</a></li>
 	  <li ng-class="{'active': level==2}"><a href="" ng-click="showLevel(2)" style="padding: 10px 10px;">Membros</a></li>
@@ -22,5 +22,6 @@
 		<div at-team ng-show="level==1"></div>
 		<div at-members ng-show="level==2"></div>
 		<div at-game ng-show="level==3"></div>
+		<div at-finish-game ng-show="level==4"></div>
 	</div>
 <div>

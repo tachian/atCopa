@@ -1,10 +1,8 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-8">
     <div class="thumbnail">
-      <img src="images/yeoman.png">
+      <img ng-src="images/{{pdv.media}}">
       <div class="caption">
-        <span class="glyphicon glyphicon-chevron-left pull-left" ng-click="backAnalysis()"></span>
-        <h3>{{pdv.name}}</h3>
+        <h3>{{pdv.name}}<small class="pull-right" ng-click="backAnalysis()">Seleção de Pontos</small></h3>
         <p>{{pdv.statement}}</p>
           <div class="row" style="padding-top: 10px;">
             <div class="pull-left" style="margin-left: 5px;">
@@ -16,5 +14,4 @@
           </div>
       </div>
     </div>
-  </div>
 </div>

@@ -4,13 +4,16 @@
 <div ng-repeat="statement in testGuideBasic[currentQuestion].group_question.statements">
 
 	<div class="row">
-		{{statement.name}}
-
+		<div class="container">
+			{{statement.name}}
+		</div>
+	</div>
 
 		<!-- More than 1 correct answer -->
+	<div class="row" style="padding-bottom: 10px;">
 		<div ng-show="statement.number_corrects>1">
 			<div ng-repeat="alternative in statement.alternatives">
-				<div class="col-xs-3 col-sm-3">
+				<div class="col-xs-4 col-sm-3">
 					<input type="checkbox" value="">
 			   		{{alternative.name}} 
 				</div>
@@ -20,15 +23,13 @@
 		<!-- Only 1 correct answer -->
 		<div ng-show="statement.number_corrects=1">
 			<div ng-repeat="alternative in statement.alternatives">
-				<div class="col-xs-3 col-sm-3">
+				<div class="col-xs-4 col-sm-3">
 				  <input type="radio" name="answerOptions{{statement.id}}" id="optionsRadios{{statement.id}}" value="option1">
 				   	{{alternative.name}}
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 </div>
 
 <div class="text-center">

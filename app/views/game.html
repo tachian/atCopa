@@ -1,5 +1,16 @@
-<div at-game-filter ng-show="gameLevel==1"></div>
-<div at-game-basic ng-show="gameLevel==2"></div>
-<div at-game-instruction-analysis ng-show="gameLevel==3"></div>
-<div at-game-analysis ng-show="gameLevel==4"></div>
+<div class="row" ng-show="gameLevel>1 && gameLevel<5">
+	<div class="container">
+		<div class="pull-right">
+			<a class="btn btn-success btn-sm" ng-click="finishGame()">Terminar o Jogo <span class="badge">{{count}}</span></a>
+		</div>
+	</div>
+</div>
 
+<div class="row" style="padding-top: 10px;">
+	<div class="container">
+		<div at-game-filter ng-show="gameLevel==1"></div>
+		<div at-game-basic ng-show="gameLevel==2"></div>
+		<div at-game-instruction-analysis ng-show="gameLevel==3"></div>
+		<div at-game-analysis ng-show="gameLevel==4"></div>
+	</div>
+</div>
