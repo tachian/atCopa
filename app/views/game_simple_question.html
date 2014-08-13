@@ -1,6 +1,10 @@
 <div class="well well-sm">
-	<h4>{{testGuideBasic[currentQuestion].simple_question.name}}<h4>
-	<h6><span ng-show"testGuideBasic[currentQuestion].simple_question.media" ng-click="showImage()">{{ImageQuestionMessage}}</span></h6>
+	<h4>{{testGuideBasic[currentQuestion].simple_question.name}}</h4>
+	<h6>
+		<span ng-show="testGuideBasic[currentQuestion].simple_question.media" ng-click="showImage()">
+			{{ImageQuestionMessage}}
+		</span>
+	</h6>
 </div>
 
 <div class="show-image" ng-show="imageQuestion">

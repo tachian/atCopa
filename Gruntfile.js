@@ -355,6 +355,30 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    ngconstant: {
+      // targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+          name: 'appConfig',
+          space: '\t'
+        },
+        constants: {
+          API_SERVER: 'localhost:3000'
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/config.js',
+          name: 'appConfig',
+          space: '\t'
+        },
+        constants: {
+          API_SERVER: 'gentle-escarpment-8121.herokuapp.com'
+        }
+      }
     }
   });
 
@@ -366,6 +390,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -389,6 +414,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
