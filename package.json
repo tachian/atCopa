@@ -14,8 +14,11 @@
     "url": "git@heroku.com:atcopa.git"
   },
   "dependencies": {
-    "gzippo": "~0.2.0",
-    "express": "~4.8.3",
-    "morgan": "~1.0.0"
+    "logfmt": "~1.1.2",
+    "express": "~4.0.0",
+    "ejs": "~1.0.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
   }
 }
