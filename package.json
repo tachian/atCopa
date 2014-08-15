@@ -1,8 +1,6 @@
 {
   "name": "atcopa",
   "version": "0.0.0",
-<<<<<<< HEAD
-=======
   "description": "copa front",
   "main": "server.js",
   "scripts": {
@@ -15,13 +13,11 @@
     "type": "git",
     "url": "git@heroku.com:atcopa.git"
   },
->>>>>>> 7c6b1ef354ef0429730a5c7e1a653cf764bca807
   "dependencies": {
     "logfmt": "~1.1.2",
     "express": "~4.0.0",
     "ejs": "~1.0.0"
   },
-<<<<<<< HEAD
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -57,9 +53,5 @@
   },
   "scripts": {
     "test": "grunt test"
-=======
-  "engines": {
-    "node": ">=0.10.0"
->>>>>>> 7c6b1ef354ef0429730a5c7e1a653cf764bca807
   }
 }
