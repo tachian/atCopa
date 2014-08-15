@@ -138,7 +138,11 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git*'
+            '!<%= yeoman.dist %>/.git*',
+            '!<%= yeoman.dist %>/Procfile',
+            '!<%= yeoman.dist %>/package.json',
+            '!<%= yeoman.dist %>/server.js',
+            '!<%= yeoman.dist %>/node_modules'
           ]
         }]
       },
@@ -379,7 +383,22 @@ module.exports = function (grunt) {
           API_SERVER: 'gentle-escarpment-8121.herokuapp.com'
         }
       }
-    }
+    },
+
+    buildcontrol: {
+        options: {
+            dir: 'dist',
+            commit: true,
+            push: true,
+            message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        },
+        heroku: {
+            options: {
+                remote: 'git@heroku.com:atcopa.git',
+                branch: 'master'
+            }
+        }
+     }
   });
 
 
@@ -435,4 +454,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('deploy', ['buildcontrol']);
 };
